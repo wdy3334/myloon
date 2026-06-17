@@ -1,14 +1,37 @@
 #!name=车来了去广告
-#!desc=屏蔽车来了App内的广告请求、日志收集与追踪服务。
+#!desc=屏蔽车来了App内的广告请求、日志收集与追踪服务（包含底栏净化）。使用了墨鱼大佬的规则https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/CheLaiLeAds.conf
 #!author=wdy
 #!date=2026-06-17
 
 [Rule]
-# 拦截日志收集
+# 基础域名拦截
 DOMAIN, logs.chelaile.net.cn, REJECT
-# 拦截追踪服务
 DOMAIN, atrace.chelaile.net.cn, REJECT
-# 拦截统计/广告相关
 DOMAIN, ss.chelaile.net.cn, REJECT
-# 拦截主要广告域名
 DOMAIN, ad.chelaile.net.cn, REJECT
+
+[Rewrite]
+# 精准拦截特定广告与追踪请求
+# > 我的页面
+^https?:\/\/.*chelaile\.net\.cn\/goocity\/flowPos\/listByPos reject
+# > 详情页
+^https?:\/\/cdn\.web\.chelaile\.net\.cn\/info-flow\/index\.html reject-200
+# > 通用广告
+^https?:\/\/.*chelaile\.net\.cn\/(api\/)?adpub reject-200
+# > IPdir处理
+^https?:\/\/124\.70\.194\.16\/(ip|adpub) reject-200
+# > 我的页面
+^https?:\/\/124\.70\.194\.16\/goocity\/flowPos\/listByPos reject-200
+# > 公交详情页
+^https?:\/\/web\.chelaile\.net\.cn\/api\/operative_position\/infoflow reject-200
+# > 隐私跟踪
+^https?:\/\/atrace\.chelaile\.net\.cn\/(wx_preloadAd|adAnalysis) reject-200
+
+[Script]
+# 运行 JS 脚本修改数据
+# > 去除底栏
+http-response ^https?:\/\/.*chelaile\.net\.cn\/goocity\/city! script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/chelaile.js, requires-body=true, timeout=10, tag=车来了去除底栏
+
+[MitM]
+# 声明需要解密的域名，上面的 Rewrite 和 Script 才会生效
+hostname = web.chelaile.net.cn, api.chelaile.net.cn, cdn.api.chelaile.net.cn, cdn.web.chelaile.net.cn, atrace.chelaile.net.cn
