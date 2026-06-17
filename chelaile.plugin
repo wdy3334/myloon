@@ -1,0 +1,14 @@
+#!name=车来了去广告
+#!desc=屏蔽车来了App内的广告请求、日志收集与追踪服务。
+#!author=wdy
+#!date=2026-06-17
+
+[Rule]
+# 拦截日志收集
+DOMAIN, logs.chelaile.net.cn, REJECT
+# 拦截追踪服务
+DOMAIN, atrace.chelaile.net.cn, REJECT
+# 拦截统计/广告相关
+DOMAIN, ss.chelaile.net.cn, REJECT
+# 拦截主要广告域名
+DOMAIN, ad.chelaile.net.cn, REJECT
