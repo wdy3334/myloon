@@ -2,6 +2,7 @@
 #!desc=屏蔽车来了App内的广告请求、日志收集与追踪服务（包含底栏净化）。使用了墨鱼大佬的规则https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/CheLaiLeAds.conf
 #!author=wdy
 #!date=2026-06-17
+#!icon=https://raw.githubusercontent.com/wdy3334/myloon/main/chelaile/chelaile.png
 
 [Rule]
 # 基础域名拦截
