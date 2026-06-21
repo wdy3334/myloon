@@ -14,7 +14,7 @@ DOMAIN, ad.chelaile.net.cn, REJECT
 [Rewrite]
 # 精准拦截特定广告与追踪请求
 # > 我的页面
-^https?:\/\/.*chelaile\.net\.cn\/goocity\/flowPos\/listByPos reject
+^https?:\/\/.*chelaile\.net\.cn\/goocity\/flowPos\/listByPos reject-200
 # > 详情页
 ^https?:\/\/cdn\.web\.chelaile\.net\.cn\/info-flow\/index\.html reject-200
 # > 通用广告
