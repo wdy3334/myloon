@@ -4,7 +4,7 @@
 #!author=WeiGiegie
 
 [Script]
-http-response ^https?:\/\/xxz-xyzw-res\.hortorgames\.com\/remote\/config\/import\/10(?:\?.*)?$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xyzw.js, requires-body=true, timeout=10, tag=通用配置修改, enable=true
+http-response ^https?:\/\/xxz-xyzw-res\.hortorgames\.com\/remote\/config\/import\/10(?:\?.*)?$ script-path=https://raw.githubusercontent.com/wdy3334/myloon/refs/heads/main/xyzw/xyzw2.js, requires-body=true, timeout=10, tag=通用配置修改, enable=true
 
 [MITM]
 hostname = xxz-xyzw-res.hortorgames.com
